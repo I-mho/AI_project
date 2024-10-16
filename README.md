@@ -1,4 +1,4 @@
-# Execute the game
+# Mechanism
 input INITIAL of user in console.
 
 base game money is 10,000 coin and user can get 1,000 coin every 1 minute.
