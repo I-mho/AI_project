@@ -1,7 +1,9 @@
 import random
+from roulette import Roulette
 
 class NormalBetGame:
-    def __init__(self, user):
+    def __init__(self, root, user):
+        self.root = root
         self.user = user
         self.win_probability = 0
 
@@ -11,7 +13,8 @@ class NormalBetGame:
         
         # 당첨 확률 설정 및 표시
         self.win_probability = random.randint(20, 80)
-        is_winner = random.random() < (self.win_probability / 100)
+        roulette = Roulette(self.root, self.win_probability)
+        is_winner = roulette.spin() # 리턴값(0 : 실패, 1 : 성공)
 
         if is_winner:
             self.user.coins += amount

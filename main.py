@@ -58,7 +58,7 @@ class BetApp:
     def __init__(self, root):
         self.user = User()
         self.user.load_data()
-        self.game = NormalBetGame(self.user)
+        self.game = NormalBetGame(root, self.user)
         
         self.root = root
         self.root.title("베팅 게임")
