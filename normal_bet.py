@@ -18,9 +18,7 @@ class NormalBetGame:
 
         if is_winner:
             self.user.coins += amount
-            # return f"축하합니다! 당첨되었습니다. 당첨 확률: {self.win_probability}% 현재 코인 잔액: {self.user.coins}"
             return f"축하합니다! 당첨되었습니다. 현재 코인 잔액: {self.user.coins}"
         else:
             self.user.coins -= amount
-            # return f"아쉽게도 당첨되지 않았습니다. 당첨 확률: {self.win_probability}% 현재 코인 잔액: {self.user.coins}"
             return f"아쉽게도 당첨되지 않았습니다. 현재 코인 잔액: {self.user.coins}"
