@@ -23,7 +23,7 @@ class Roulette:
         self.angle = 0  # 룰렛의 초기 각도
 
         # TODO: 성공, 실패 색상 정해주시면 감사하겠습니다...!
-        self.colors = ['gray', 'red']
+        self.colors = ['red', 'blue']
 
         # 추가 팝업 창 설정
         self.child = tk.Toplevel(self.root)

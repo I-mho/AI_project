@@ -40,16 +40,15 @@ class User:
 
     def add_bonus(self):
         current_time = time.time()
-        if current_time - self.last_bonus_time >= 300:
+        if current_time - self.last_bonus_time >= 60:
             self.coins += 1000
             self.last_bonus_time = current_time
             self.save_data()
             return "1000 코인을 추가로 받았습니다."
         else:
-            remaining_time = int(300 - (current_time - self.last_bonus_time))
-            minutes = remaining_time // 60
+            remaining_time = int(60 - (current_time - self.last_bonus_time))
             seconds = remaining_time % 60
-            return f"{minutes}분 {seconds}초 후에 다시 시도하세요."
+            return f"{seconds}초 후에 다시 시도하세요."
 
     def close_connection(self):
         self.conn.close()
