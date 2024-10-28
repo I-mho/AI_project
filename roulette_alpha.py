@@ -5,7 +5,7 @@ import random
 import time
 
 # 룰렛 결과와 콘솔에 출력되는 결과는 일치
-# 위 결과들과 normal_bet.py에서 결정되는 당첨 여부가 일치하지 않는 듯함
+# 위 결과들과 normal_bet.py에서 결정되는 당첨 여부가 일치하지 않는 듯함 
 
 class Roulette:
     def __init__(self, root, win_probability):
