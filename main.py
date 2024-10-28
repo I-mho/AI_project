@@ -1,5 +1,6 @@
 import tkinter as tk
-from normal_bet import NormalBetGame
+# from normal_bet import NormalBetGame
+from normal_bet_alpha import NormalBetGame
 import time
 import sqlite3
 
