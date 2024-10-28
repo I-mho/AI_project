@@ -101,16 +101,17 @@ class Roulette:
         if self.angle >= 360:
             self.angle = self.angle - 360
 
-        current_angle = (360 - self.angle) % 360
-        cumulative_angle = 360 - 90
+        current_angle = (360 - self.angle) % 360  # 12시 방향을 기준으로 한 현재 룰렛 각도
+        cumulative_angle = -90  #0 # 누적 각도 초기화 / 캔버스 시작 3시부터이므로 -90도 하여 12시로 체크 위치 전환
 
-        for i, sector_angle in reversed(list(enumerate(self.angles))):
-            cumulative_angle -= sector_angle
-            if current_angle > cumulative_angle:
-                self.root.after(5000, self.close_lable)
-                return i
+        # 각 섹터의 각도를 누적하여 현재 각도가 어느 섹터에 속하는지 계산
+        for i, sector_angle in enumerate(self.angles):  # 정방향으로 순회
+            cumulative_angle += sector_angle
+            if cumulative_angle >= current_angle:
+                self.root.after(3000, self.close_lable)  # 룰렛 종료 시, 3초 뒤 창 종료
+                return i  # 해당 섹터의 인덱스를 반환
+        return -1  # 예외적인 경우
 
-        return -1
 
     def close_lable(self):
         self.child.destroy()
