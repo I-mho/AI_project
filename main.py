@@ -47,7 +47,7 @@ class User:
             return "1000 코인을 추가로 받았습니다."
         else:
             remaining_time = int(60 - (current_time - self.last_bonus_time))
-            seconds = remaining_time % 60
+            seconds = remaining_time
             return f"{seconds}초 후에 다시 시도하세요."
 
     def close_connection(self):
@@ -61,7 +61,7 @@ class BetApp:
         
         self.root = root
         self.root.title("베팅 게임")
-        self.root.geometry("500x300")
+        self.root.geometry("550x350")
         
         self.coins_label = tk.Label(root, text=f"현재 코인 잔액: {self.user.coins}", font=("Arial", 14))
         self.coins_label.pack(pady=10)
